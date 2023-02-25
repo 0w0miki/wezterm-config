@@ -7,18 +7,29 @@ local target_img_height = 7
 local img_height_width_ratio = 1.396
 local background = {
     {
+        source = {
+            Gradient = {
+                orientation = { Linear = { angle = -45.0 } },
+                colors = {'#ab72fd', '#3368b2' },
+                interpolation = 'CatmullRom',
+            },
+        },
+        hsb = { brightness = 0.4, },
+        height = '100%',
+        width = '100%',
+        opacity = 0.9
+    },
+    {
         source = { Color = '#1f2430' },
         height = '100%',
         width = '100%',
-        opacity = 0.9,
+        opacity = 0.78,
     },
     {
         source = {
             File = wezterm.config_dir .. '/101354890-lucy.png',
         },
-        hsb = {
-            brightness = 0.03,
-        },
+        opacity = 0.1,
         vertical_align = 'Bottom',
         horizontal_align = 'Right',
         repeat_x = 'NoRepeat',
@@ -51,7 +62,7 @@ local general = {
         target = 'CursorColor',
     },
     colors = {
-        visual_bell = '#f1d490',
+        visual_bell = '#e6505f',
         scrollbar_thumb = '#e6505f',
     },
 

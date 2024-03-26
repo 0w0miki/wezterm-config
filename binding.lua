@@ -93,7 +93,8 @@ local key_tables = {
 -- Search
 local search_mode = {
     { key = 'F3', mods = 'NONE', action = wezterm.action.CopyMode 'NextMatch' },
-    { key = 'F3', mods = 'SHIFT', action = wezterm.action.CopyMode 'PriorMatch' }
+    { key = 'F3', mods = 'SHIFT', action = wezterm.action.CopyMode 'PriorMatch' },
+    { key = 'Enter', mods = 'SHIFT', action = wezterm.action.CopyMode 'PriorMatch' },
 }
 if wezterm.gui then
     local default_search_key = wezterm.gui.default_key_tables().search_mode

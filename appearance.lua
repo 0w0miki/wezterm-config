@@ -3,8 +3,6 @@ local util = require('utils')
 
 -- Define colors need to use
 wezterm.log_info('Config Dir ' .. wezterm.config_dir)
-local target_img_height = 7
-local img_height_width_ratio = 1.396
 local background = {
     {
         source = {
@@ -23,7 +21,7 @@ local background = {
         source = { Color = '#1f2430' },
         height = '100%',
         width = '100%',
-        opacity = 0.78,
+        opacity = 0.6,
     },
     {
         source = {
@@ -64,6 +62,7 @@ local general = {
     colors = {
         visual_bell = '#e6505f',
         scrollbar_thumb = '#e6505f',
+        selection_bg = '#963694',
     },
 
     -- Inactive pane

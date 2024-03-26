@@ -162,9 +162,10 @@ wezterm.on(
         end
 
         -- process
-        local proc = pane:get_foreground_process_info().argv
-        -- pushRightStatus(util:basename((table.concat(proc, ' '))), colors[right_num_ele], text_fg)
-        pushRightStatus(util:basename(table.concat(proc, ' ')), colors[right_num_ele], text_fg)
+        local proc = pane:get_foreground_process_info()
+        if proc then
+            pushRightStatus(util:basename(table.concat(proc.argv, ' ')), colors[right_num_ele], text_fg)
+        end
 
         -- workspace
         local workspace = window:active_workspace()

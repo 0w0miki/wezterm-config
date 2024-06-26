@@ -3,6 +3,7 @@ local util = require('utils')
 local menu = require('launch')
 local appearance = require('appearance')
 local binding = require('binding')
+local remotes = require('remotes')
 
 local config = {
     -- Launch Menu
@@ -53,5 +54,6 @@ wezterm.on(
 
 config = util:mergeTable(config, appearance)
 config = util:mergeTable(config, binding)
+config = util:mergeTable(config, remotes)
 
 return config

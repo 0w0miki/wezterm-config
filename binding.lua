@@ -94,11 +94,12 @@ local key_tables = {
 local search_mode = {
     { key = 'F3', mods = 'NONE', action = wezterm.action.CopyMode 'NextMatch' },
     { key = 'F3', mods = 'SHIFT', action = wezterm.action.CopyMode 'PriorMatch' },
+    { key = 'Enter', mods = 'NONE', action = wezterm.action.CopyMode 'NextMatch' },
     { key = 'Enter', mods = 'SHIFT', action = wezterm.action.CopyMode 'PriorMatch' },
 }
 if wezterm.gui then
     local default_search_key = wezterm.gui.default_key_tables().search_mode
-    search_mode = uitl:mergeArray(search_mode, default_search_key)
+    search_mode = uitl:mergeArray(default_search_key, search_mode)
     key_tables["key_tables"]["search_mode"] = search_mode
 end
 

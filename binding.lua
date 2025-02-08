@@ -55,6 +55,22 @@ local key_binding = {
             action = wezterm.action.ActivatePaneDirection 'Down',
         },
         {
+            key = 'h', mods = 'CMD|OPT|SHIFT|CTRL',
+            action = wezterm.action.ActivatePaneDirection 'Left',
+        },
+        {
+            key = 'l', mods = 'CMD|OPT|SHIFT|CTRL',
+            action = wezterm.action.ActivatePaneDirection 'Right',
+        },
+        {
+            key = 'k', mods = 'CMD|OPT|SHIFT|CTRL',
+            action = wezterm.action.ActivatePaneDirection 'Up',
+        },
+        {
+            key = 'j', mods = 'CMD|OPT|SHIFT|CTRL',
+            action = wezterm.action.ActivatePaneDirection 'Down',
+        },
+        {
             key = '[', mods = 'CMD',
             action = wezterm.action.ActivatePaneDirection "Prev"
         },

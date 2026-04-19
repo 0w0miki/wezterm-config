@@ -18,10 +18,10 @@ local key_binding = {
                 size = { Percent = 50 },
             }
         },
-        {
-            key = 'p', mods = 'CMD|SHIFT',
-            action = wezterm.action.ShowLauncherArgs { flags = 'LAUNCH_MENU_ITEMS|WORKSPACES' }
-        },
+        -- {
+        --     key = 'p', mods = 'CMD|SHIFT',
+        --     action = wezterm.action.ShowLauncherArgs { flags = 'LAUNCH_MENU_ITEMS|WORKSPACES' }
+        -- },
         {
             key = 't', mods = 'CMD|SHIFT',
             action = wezterm.action.ShowLauncherArgs { flags = 'TABS' }
@@ -35,7 +35,7 @@ local key_binding = {
             action = wezterm.action.CloseCurrentTab { confirm = true },
         },
         {
-            key = 'p', mods = 'CMD|OPT|SHIFT|CTRL',
+            key = 'p', mods = 'CMD|SHIFT',
             action = wezterm.action.PaneSelect
         },
         {

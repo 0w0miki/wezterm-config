@@ -4,6 +4,9 @@ local menu = require('launch')
 local appearance = require('appearance')
 local binding = require('binding')
 local remotes = require('remotes')
+local session_keys = require('session_manager')
+
+local cmd_sender = wezterm.plugin.require("https://github.com/aureolebigben/wezterm-cmd-sender")
 
 local config = {
     -- Launch Menu
@@ -31,29 +34,16 @@ local config = {
     },
 }
 
-wezterm.on(
-    'gui-startup', function(cmd)
-        local input_args = {}
-        if cmd then
-            input_args = cmd.args
-        end
-
-        -- Create a workspace for nsv connection in backend
-        local nsvtab, nsvpane, nsvwindow = wezterm.mux.spawn_window {
-            workspace = 'nsv',
-            args = {},
-        }
-        nsvpane:split { direction = 'Top', size = 0.8 }
-
-        local tab, pane, window = wezterm.mux.spawn_window {
-            workspace = 'Default',
-            args = input_args
-        }
-    end
-)
-
 config = util:mergeTable(config, appearance)
 config = util:mergeTable(config, binding)
 config = util:mergeTable(config, remotes)
+config = util:mergeTable(config, session_keys)
+-- config.keys = util:mergeArray(config.keys, session_keys)
+
+cmd_sender.apply_to_config(config, {
+    key = 'mapped:s',
+    mods = 'ALT',
+    description = 'Enter command to send to all panes of active tab'
+})
 
 return config

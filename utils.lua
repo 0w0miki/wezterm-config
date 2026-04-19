@@ -21,10 +21,30 @@ function util:basename(s)
     return string.gsub(s, '(.*[/\\])(.*)', '%2')
 end
 
+-- Check whether a table is an array
+function util:isArray(t)
+    if type(t) ~= 'table' then return false end
+    local count = 0
+    local max = 0
+    for k, v in pairs(t) do
+        if type(k) ~= 'number' then
+            return false
+        end
+        if k > max then max = k end
+        count = count + 1
+    end
+    if max > 2 * count then
+        return false
+    end
+    return true
+end
+
 -- Merge associative tables. If key conflicts, use t2
 function util:mergeTable(t1, t2)
     for k, v in pairs(t2) do
-        if type(v) == 'table' and type(t1[k]) == 'table' then
+        if util:isArray(v) and util:isArray(t1[k]) then
+            t1[k] = util:mergeArray(t1[k], v)
+        elseif type(v) == 'table' and type(t1[k]) == 'table' then
             t1[k] = util:mergeTable(t1[k], t2[k])
         elseif type(v) ~= 'function' and type(v) ~= 'thread' then
             t1[k] = v
@@ -32,6 +52,14 @@ function util:mergeTable(t1, t2)
     end
 
     return t1
+end
+
+function util:createLookupTable(t)
+    local lookup = {}
+    for k, v in pairs(t) do
+        lookup[v] = true
+    end
+    return lookup
 end
 
 -- Merge array to l1.

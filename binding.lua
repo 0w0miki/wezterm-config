@@ -71,6 +71,14 @@ local key_binding = {
             action = wezterm.action.ActivatePaneDirection 'Down',
         },
         {
+            key = '{', mods = 'CMD|OPT|SHIFT|CTRL',
+            action = wezterm.action.ActivatePaneDirection "Prev"
+        },
+        {
+            key = '}', mods = 'CMD|OPT|SHIFT|CTRL',
+            action = wezterm.action.ActivatePaneDirection "Next"
+        },
+        {
             key = 'h', mods = 'SHIFT|ALT|CTRL',
             action = wezterm.action.AdjustPaneSize { 'Left', 1 }
         },
@@ -85,14 +93,6 @@ local key_binding = {
         {
             key = 'j', mods = 'SHIFT|ALT|CTRL',
             action = wezterm.action.AdjustPaneSize { 'Down', 1 }
-        },
-        {
-            key = '[', mods = 'CMD',
-            action = wezterm.action.ActivatePaneDirection "Prev"
-        },
-        {
-            key = ']', mods = 'CMD',
-            action = wezterm.action.ActivatePaneDirection "Next"
         },
         {
             -- search for things that look like git hashes
